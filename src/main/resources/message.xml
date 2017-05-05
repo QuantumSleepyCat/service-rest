@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://www.cinema.com/message"
+             xsi:schemaLocation="http://www.cinema.com/message  message.xsd">
+    <message>
+        <name>Уведомление о регистрации</name>
+        <theme>Регистрация</theme>
+        <text>Здравствуйте, ${login}! Данное письмо отправлено Вам, так как Вы зарегистрировались в системе кинотеатров. Желаем приятного времяпрепровждения!</text>
+    </message>
+    <message>
+        <name>Уведомление о новом сервисе</name>
+        <theme>Новые сервисы</theme>
+        <text>Здравствуйте, ${login}! Хотим сообщить Вам, что с ${currentdate} в нашем сервисе будет доступна новая функция! Следите за обновлением и попробуйте её одними из первых!</text>
+    </message>
+    <message>
+        <name>Новый фильм в прокате</name>
+        <theme>Сегодня в прокате</theme>
+        <text>Здравствуйте, ${login}! Обратите внимание, что с ${currentdate} в прокат выходит ${film}</text>
+    </message>
+    <message>
+        <name>Оплата фильма</name>
+        <theme>Чек об оплате</theme>
+        <text>Здравствуйте, ${login}! Спасибо, что сегодня (${currentdate}) вы купили билет на ${film}. Сумма заказа: ${sum}. Для того, чтобы ваши места были успешно заказаны необходимо перейти по ссылке: ${URL}</text>
+    </message>
+</messages>

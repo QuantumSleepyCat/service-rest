@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.cinema.com/message"
+           xmlns:tns="http://www.cinema.com/message"
+           elementFormDefault="qualified">
+    <element name="messages">
+        <complexType>
+            <sequence>
+                <element name="message"
+                         type="tns:Message"
+                         minOccurs="2"
+                         maxOccurs="unbounded" />
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Message">
+        <sequence>
+            <element name="name" type="string" />
+            <element name="theme" type="string" />
+            <element name="text" type="string" />
+        </sequence>
+    </complexType>
+</schema>
