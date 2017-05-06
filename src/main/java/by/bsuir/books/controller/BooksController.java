@@ -37,7 +37,7 @@ public class BooksController {
     {
         ServiceResponseEntity<List<Book>> books = serviceFactory.getBookService().getThreeLastBooks();
         BooksCollect booksCollect = new BooksCollect();
-        booksCollect.setBooksCollects(books.getResultBody());
+        booksCollect.setBooksCollects((List<Book>)books.getResultBody());
         if(booksCollect!=null){
         return new ResponseEntity<BooksCollect>(booksCollect, HttpStatus.OK);}
         return new ResponseEntity<BooksCollect>(HttpStatus.NOT_FOUND);

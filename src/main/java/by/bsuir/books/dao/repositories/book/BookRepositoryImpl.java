@@ -25,7 +25,7 @@ public class BookRepositoryImpl{
 
 
     public List<Book> getThreeLastBooks() {
-        Query query = entityManager.createNativeQuery("SELECT * FROM `book` ORDER BY id DESC LIMIT 3");
+        Query query = entityManager.createNativeQuery("SELECT * FROM `book` ORDER BY id DESC LIMIT 3", Book.class);
         List<Book> bookList = query.getResultList();
         if(bookList.size()>0)
         {

@@ -31,7 +31,6 @@ public class BookServiceImpl implements BookService{
     @Override
     public ServiceResponseEntity<List<Book>> getThreeLastBooks() {
         List<Book> bookList = daoFactory.getBookRepository().getThreeLastBooks();
-
         return (bookList == null) ?
                 new ServiceResponseEntity<List<Book>>(HttpStatus.NOT_FOUND) :
                 new ServiceResponseEntity<>(bookList, HttpStatus.OK);

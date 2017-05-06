@@ -32,7 +32,6 @@ public class NewsController {
 //        return new ResponseEntity<List<News>>(news.getResultBody(), news.getStatus());
         NewsCollect newsCollect = new NewsCollect();
         newsCollect.setList(news.getResultBody());
-
         return new ResponseEntity<NewsCollect>(newsCollect,HttpStatus.OK);
     }
 
