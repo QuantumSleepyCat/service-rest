@@ -57,4 +57,21 @@ public class UserServiceImpl implements UserService{
                 new ServiceResponseEntity<>(user, HttpStatus.OK);
 
     }
+
+    @Override
+    public ServiceResponseEntity<User> authorization(User user) {
+        List<User> userAuth= daoFactory.getUserRepository().authorization(user);
+
+        User userRes=null;
+        for(User us:userAuth)
+        {
+            if(us.getLogin().equals(user.getLogin())&& us.getPass().equals(user.getPass()))
+            {
+                userRes=us;
+            }
+        }
+
+        return (userRes==null) ? new ServiceResponseEntity<User>(HttpStatus.NOT_FOUND):
+                new ServiceResponseEntity<>(userRes, HttpStatus.FOUND);
+    }
 }

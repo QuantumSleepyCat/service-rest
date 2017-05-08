@@ -8,5 +8,5 @@ public interface UserService {
 //    ServiceResponseEntity<User> addUser(User user);
 //    ServiceResponseEntity<User> authorization(User user);
     ServiceResponseEntity<User> getUser(int userId);
-
+    ServiceResponseEntity<User> authorization(User user);
 }
