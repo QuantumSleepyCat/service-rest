@@ -10,4 +10,6 @@ import java.util.List;
 public interface BookRepositoryCustom {
 
     List<Book> getThreeLastBooks();
+    List<Book> getPage(int numbpage);
+    int getCount();
 }

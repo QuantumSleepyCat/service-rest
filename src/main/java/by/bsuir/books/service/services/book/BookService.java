@@ -12,5 +12,7 @@ public interface BookService {
 
     ServiceResponseEntity<Book> getBook(int id);
     ServiceResponseEntity<List<Book>> getThreeLastBooks();
+    ServiceResponseEntity<List<Book>> getPage(int numbPage);
+    ServiceResponseEntity<Integer> getCount();
 
 }

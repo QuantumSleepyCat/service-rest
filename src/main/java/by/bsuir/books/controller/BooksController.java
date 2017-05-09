@@ -44,4 +44,21 @@ public class BooksController {
     }
 
 
+    @RequestMapping(value = "/page/{pageNumb}", method = RequestMethod.GET)
+    public ResponseEntity<BooksCollect> getPage(@PathVariable int pageNumb)
+    {
+        ServiceResponseEntity<List<Book>> books = serviceFactory.getBookService().getPage(pageNumb);
+        BooksCollect booksCollect =new BooksCollect();
+        booksCollect.setBooksCollects(books.getResultBody());
+        return (booksCollect!=null) ?  new ResponseEntity<BooksCollect>(booksCollect,HttpStatus.OK):
+        new ResponseEntity<BooksCollect>(HttpStatus.NOT_FOUND);
+
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    public ResponseEntity<Integer> getCount()
+    {
+        ServiceResponseEntity<Integer> count = serviceFactory.getBookService().getCount();
+        return new ResponseEntity<Integer>(count.getResultBody(), count.getStatus());
+    }
 }
