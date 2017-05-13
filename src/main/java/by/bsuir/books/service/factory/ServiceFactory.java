@@ -3,6 +3,7 @@ package by.bsuir.books.service.factory;
 
 
 import by.bsuir.books.service.services.book.BookService;
+import by.bsuir.books.service.services.comments.CommentsService;
 import by.bsuir.books.service.services.links.LinksService;
 import by.bsuir.books.service.services.news.NewsService;
 import by.bsuir.books.service.services.user.UserService;
@@ -22,6 +23,13 @@ public class ServiceFactory {
 
     @Autowired
     private LinksService linksService;
+
+    @Autowired
+    private CommentsService commentsService;
+
+    public CommentsService getCommentsService() {
+        return commentsService;
+    }
 
     public LinksService getLinksService() {
         return linksService;

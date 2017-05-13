@@ -1,6 +1,7 @@
 package by.bsuir.books.service.services.book;
 
 import by.bsuir.books.entity.Book;
+import by.bsuir.books.entity.Comments;
 import by.bsuir.books.service.util.ServiceResponseEntity;
 
 import java.util.List;
@@ -14,5 +15,4 @@ public interface BookService {
     ServiceResponseEntity<List<Book>> getThreeLastBooks();
     ServiceResponseEntity<List<Book>> getPage(int numbPage);
     ServiceResponseEntity<Integer> getCount();
-
 }

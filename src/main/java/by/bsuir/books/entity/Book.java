@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -63,6 +64,11 @@ public class Book implements Serializable{
     @JsonIgnore
     private List<Links> linksList = new ArrayList<>();
 
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy = "book")
+    @JsonIgnore
+    private List<Comments> commentsList;//=new ArrayList<>();
+
+
     public Book(){}
 
     public Book(long id, String title, String author, String genre, String description, int year, Date date, Time time, String edition, float reit,int count_people, User user)
@@ -80,6 +86,24 @@ public class Book implements Serializable{
         this.count_people=count_people;
         this.user=user;
     }
+
+    public void setCommentsList(List<Comments> commentsList) {
+        this.commentsList = commentsList;
+    }
+
+
+    public List<Comments> getCommentsList() {
+        return commentsList;
+    }
+
+    public void setComment(String comment, User userCom)
+    {
+        Comments comments = new Comments();
+        comments.setMessage(comment);
+        comments.setUser(userCom);
+        commentsList.add(comments);
+    }
+
 
     public void setLinksList(List<Links> linksList) {
         this.linksList = linksList;

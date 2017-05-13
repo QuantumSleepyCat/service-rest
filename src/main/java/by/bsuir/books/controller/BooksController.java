@@ -1,7 +1,9 @@
 package by.bsuir.books.controller;
 
 import by.bsuir.books.collections.BooksCollect;
+import by.bsuir.books.collections.CommentCollect;
 import by.bsuir.books.entity.Book;
+import by.bsuir.books.entity.Comments;
 import by.bsuir.books.service.factory.ServiceFactory;
 import by.bsuir.books.service.util.ServiceResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,15 @@ public class BooksController {
     {
         ServiceResponseEntity<Book> book = serviceFactory.getBookService().getBook(idBook);
         return new  ResponseEntity<Book>(book.getResultBody(), book.getStatus());
+    }
+
+    @RequestMapping(value = "/com/{idBook}",method = RequestMethod.GET)
+    public ResponseEntity<CommentCollect> getComments(@PathVariable int idBook)
+    {
+        ServiceResponseEntity<Book> book = serviceFactory.getBookService().getBook(idBook);
+        CommentCollect commentCollect=new CommentCollect();
+        commentCollect.setCommentsListCollects(book.getResultBody().getCommentsList());
+        return new  ResponseEntity<CommentCollect>(commentCollect, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/forindex", method = RequestMethod.GET)

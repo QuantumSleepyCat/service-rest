@@ -2,6 +2,7 @@ package by.bsuir.books.service.services.book;
 
 import by.bsuir.books.dao.factory.DaoFactory;
 import by.bsuir.books.entity.Book;
+import by.bsuir.books.entity.Comments;
 import by.bsuir.books.service.util.ServiceResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -49,4 +50,6 @@ public class BookServiceImpl implements BookService{
         int count = daoFactory.getBookRepository().getCount();
         return new ServiceResponseEntity<Integer>(count, HttpStatus.OK);
     }
+
+
 }
