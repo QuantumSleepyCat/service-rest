@@ -68,6 +68,17 @@ public class Book implements Serializable{
     @JsonIgnore
     private List<Comments> commentsList;//=new ArrayList<>();
 
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy = "book")
+    @JsonIgnore
+    private List<Bookmarks> bookmarksList;
+
+    public List<Bookmarks> getBookmarksList() {
+        return bookmarksList;
+    }
+
+    public void setBookmarksList(List<Bookmarks> bookmarksList) {
+        this.bookmarksList = bookmarksList;
+    }
 
     public Book(){}
 

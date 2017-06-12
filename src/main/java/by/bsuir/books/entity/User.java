@@ -1,11 +1,13 @@
 package by.bsuir.books.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +35,19 @@ public class User implements Serializable {
     @Column(name = "email")
     private String email;
 
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL, mappedBy = "user")
+    @JsonIgnore
+    List<Bookmarks> bookmarksList;
+
+    public List<Bookmarks> getBookmarksList() {
+        return bookmarksList;
+    }
+
+    public void setBookmarksList(List<Bookmarks> bookmarksList) {
+        this.bookmarksList = bookmarksList;
+    }
+
+    //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 //    private List<News> news;
 
     public User(){}

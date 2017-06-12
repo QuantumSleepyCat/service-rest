@@ -13,4 +13,5 @@ public interface NewsService {
     ServiceResponseEntity<News> getNews(int newsId);
     ServiceResponseEntity<News> getNewsById(int newsId);
     ServiceResponseEntity<List<News>> getThreeLustNews();
+    ServiceResponseEntity<List<News>> getAll();
 }

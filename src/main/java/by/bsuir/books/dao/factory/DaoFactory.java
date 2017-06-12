@@ -2,6 +2,7 @@ package by.bsuir.books.dao.factory;
 
 
 import by.bsuir.books.dao.repositories.book.BookRepository;
+import by.bsuir.books.dao.repositories.bookmarks.BookmarksRepository;
 import by.bsuir.books.dao.repositories.comments.CommentsRepository;
 import by.bsuir.books.dao.repositories.links.LinksRepository;
 import by.bsuir.books.dao.repositories.news.NewsRepository;
@@ -25,6 +26,13 @@ public class DaoFactory {
 
     @Autowired
     private CommentsRepository commentsRepository;
+
+    @Autowired
+    private BookmarksRepository bookmarksRepository;
+
+    public BookmarksRepository getBookmarksRepository() {
+        return bookmarksRepository;
+    }
 
     public CommentsRepository getCommentsRepository() {
         return commentsRepository;

@@ -39,11 +39,17 @@ public class NewsServiceImpl implements NewsService {
     @Override
     public ServiceResponseEntity<List<News>> getThreeLustNews() {
         List<News> newsList = daoFactory.getNewsRepository().getThreeLustNews();
-        //System.out.println(newsList.get(0).getTitle()+"!!!!!!!!!!!!!");
         return (newsList == null)?
                 new ServiceResponseEntity<List<News>>(HttpStatus.NOT_FOUND):
                 new ServiceResponseEntity<>(newsList, HttpStatus.OK);
 
+    }
+
+    @Override
+    public ServiceResponseEntity<List<News>> getAll() {
+        List<News> newsList = (List<News>) daoFactory.getNewsRepository().findAll();
+        return (newsList!=null)? new ServiceResponseEntity<>(newsList, HttpStatus.FOUND):
+                new ServiceResponseEntity<List<News>>(HttpStatus.NOT_FOUND);
     }
 
 

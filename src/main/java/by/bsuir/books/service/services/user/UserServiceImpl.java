@@ -74,4 +74,11 @@ public class UserServiceImpl implements UserService{
         return (userRes==null) ? new ServiceResponseEntity<User>(HttpStatus.NOT_FOUND):
                 new ServiceResponseEntity<>(userRes, HttpStatus.FOUND);
     }
+
+    @Override
+    public ServiceResponseEntity<List<User>> getAll() {
+        List<User> userList = (List<User>) daoFactory.getUserRepository().findAll();
+        return (userList!=null)? new ServiceResponseEntity<>(userList,HttpStatus.FOUND):
+                new ServiceResponseEntity<List<User>>(HttpStatus.NOT_FOUND);
+    }
 }

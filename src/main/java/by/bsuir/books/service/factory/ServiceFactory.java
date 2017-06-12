@@ -2,7 +2,9 @@ package by.bsuir.books.service.factory;
 
 
 
+import by.bsuir.books.entity.Bookmarks;
 import by.bsuir.books.service.services.book.BookService;
+import by.bsuir.books.service.services.bookmarks.BookmarksService;
 import by.bsuir.books.service.services.comments.CommentsService;
 import by.bsuir.books.service.services.links.LinksService;
 import by.bsuir.books.service.services.news.NewsService;
@@ -26,6 +28,14 @@ public class ServiceFactory {
 
     @Autowired
     private CommentsService commentsService;
+
+    @Autowired
+    private BookmarksService bookmarksService;
+
+    public BookmarksService getBookmarksService() {
+        return bookmarksService;
+    }
+
 
     public CommentsService getCommentsService() {
         return commentsService;
